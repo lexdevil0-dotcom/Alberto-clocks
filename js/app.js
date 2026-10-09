@@ -1,8 +1,4 @@
-/* =====================================================================
-   ALBERTO WATCH COMPANY
-   True single-page scrolling layout — all sections always visible.
-   Data: data/products.json  |  fallback: data/data.js
-   ===================================================================== */
+
 (function () {
   "use strict";
 
@@ -16,7 +12,7 @@
     });
   };
 
-  /* ── Local product images (images/products/) ── */
+  /* product images */
   var PHOTOS = {
     1:  "images/products/p1.jpg",
     2:  "images/products/p2.jpg",
@@ -35,7 +31,7 @@
     15: "images/products/p15.jpg"
   };
 
-  /* ── Local tech images (images/tech/) ── */
+  /* tech images */
   var TECH_PHOTOS = {
     "Mechanical":        "images/tech/tech-mechanical.jpg",
     "Quartz":            "images/tech/tech-quartz.jpg",
@@ -45,7 +41,7 @@
     "Water Resistance":  "images/tech/tech-water.jpg"
   };
 
-  /* ── Local store images (images/stores/) ── */
+  /* store images */
   var STORE_PHOTOS = {
     "Lagos":         "images/stores/store-lagos.jpg",
     "Abuja":         "images/stores/store-abuja.jpg",
@@ -53,7 +49,7 @@
     "Kano":          "images/stores/store-kano.jpg"
   };
 
-  /* ── Load JSON ── */
+  /* load data */
   function loadData() {
     if (window.fetch && location.protocol !== "file:") {
       return fetch("data/products.json")
@@ -63,7 +59,7 @@
     return Promise.resolve(window.WATCH_DATA);
   }
 
-  /* ── Product card HTML ── */
+  /* card template */
   function card(p) {
     var src = PHOTOS[p.id];
     return '<article class="card" tabindex="0" data-id="' + p.id + '">' +
@@ -92,7 +88,7 @@
     });
   }
 
-  /* ── Modals ── */
+  /* modals */
   function showModal(el) {
     el.classList.add("open");
     el.setAttribute("aria-hidden", "false");
@@ -126,7 +122,7 @@
     showModal($("#modal"));
   }
 
-  /* ── Sticky nav scroll-spy ── */
+  /* scroll spy */
   function initScrollSpy() {
     var sections = $$("section[id]");
     var navLinks = $$(".menu a");
@@ -145,7 +141,7 @@
     onScroll();
   }
 
-  /* ── Burger ── */
+  /* burger menu */
   function initBurger() {
     $("#burger").addEventListener("click", function () {
       var open = $("#menu").classList.toggle("open");
@@ -159,7 +155,7 @@
     });
   }
 
-  /* ── Products ── */
+  /* products */
   var activeCat = "All";
 
   function renderProducts() {
@@ -194,7 +190,7 @@
     $("#productGrid").style.transition = "opacity .3s";
   }
 
-  /* ── Technology ── */
+  /* technology */
   function renderTech() {
     $("#techGrid").innerHTML = DATA.technology.map(function (t) {
       var img = TECH_PHOTOS[t.title];
@@ -209,7 +205,7 @@
     }).join("");
   }
 
-  /* ── Store locator ── */
+  /* store locator */
   function haversine(a, b, c, d) {
     var R = 6371, rad = Math.PI / 180;
     var dLat = (c - a) * rad, dLon = (d - b) * rad;
@@ -258,7 +254,7 @@
     });
   }
 
-  /* ── Price list ── */
+  /* price list */
   function renderPrices() {
     var q = $("#priceSearch").value.toLowerCase().trim();
     var cat = $("#priceCat").value, sort = $("#priceSort").value;
@@ -298,7 +294,7 @@
     renderPrices();
   }
 
-  /* ── Gallery ── */
+  /* gallery */
   function initGallery() {
     $("#galleryGrid").innerHTML = DATA.products.map(function (p) {
       var src = PHOTOS[p.id];
@@ -324,7 +320,7 @@
     });
   }
 
-  /* ── FAQ ── */
+  /* faq */
   function initFAQ() {
     $("#faqList").innerHTML = DATA.faq.map(function (f) {
       return '<div class="faq-item">' +
@@ -344,7 +340,7 @@
     });
   }
 
-  /* ── Forms ── */
+  /* forms */
   function validateForm(form, msgEl, okText) {
     var ok = true;
     $$("input[required],select[required],textarea[required]", form).forEach(function (f) {
@@ -367,7 +363,7 @@
     });
   }
 
-  /* ── Sitemap ── */
+  /* sitemap */
   function initSitemap() {
     var pages = [
       ["home","Home"],["products","Products",true],
@@ -385,12 +381,12 @@
     }).join("");
   }
 
-  /* ── Hero analog clock ── */
+  /* analog clock */
   function initHeroClock() {
     var el = $("#heroClock");
     if (!el) return;
 
-    /* SVG tick marks */
+  /* SVG tick marks */
     var svg = document.createElementNS("http://www.w3.org/2000/svg","svg");
     svg.setAttribute("viewBox","0 0 114 114");
     svg.setAttribute("style","position:absolute;inset:0;width:100%;height:100%;border-radius:50%");
@@ -420,7 +416,7 @@
     tick(); setInterval(tick, 1000);
   }
 
-  /* ── Visitor counter ── */
+  /* visitors */
   function initVisitors() {
     var count = 1250;
     try {
@@ -434,7 +430,7 @@
     $("#visitorCount").textContent = count.toLocaleString("en-US");
   }
 
-  /* ── Ticker ── */
+  /* ticker */
   var locText = "Detecting location\u2026";
   function initTicker() {
     var tz = "";
@@ -464,7 +460,7 @@
     update(); setInterval(update, 1000);
   }
 
-  /* ── Modal global handlers ── */
+  /* modal events */
   function initModals() {
     $("#modalClose").addEventListener("click", function () { hideModal($("#modal")); });
     $("#lightClose").addEventListener("click", function () { hideModal($("#lightbox")); });
@@ -476,7 +472,7 @@
     });
   }
 
-  /* ── Boot ── */
+  /* init */
   loadData().then(function (d) {
     DATA = d;
     renderFilters();
