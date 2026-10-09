@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alberto Watch Company | Luxury Timepieces Since 1962</title>
+<meta name="description" content="Alberto Watch Company – full-service watch repair, appraisal and retail. Rolex, Michael Kors, Citizen, Bulova and our own Alberto collection.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ═══════════ TOP BAR ═══════════ -->
+<header class="topbar">
+  <div class="brand">
+    <div class="logo-wrap">
+      <svg viewBox="0 0 60 60" aria-hidden="true" fill="none">
+        <circle cx="30" cy="30" r="26" stroke="#c9a84c" stroke-width="2.5"/>
+        <circle cx="30" cy="30" r="18" fill="#0b1726"/>
+        <line x1="30" y1="30" x2="30" y2="16" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="30" y1="30" x2="40" y2="35" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="30" cy="30" r="2.5" fill="#c9a84c"/>
+        <line x1="30" y1="7"  x2="30" y2="11" stroke="#c9a84c" stroke-width="1.5"/>
+        <line x1="30" y1="49" x2="30" y2="53" stroke="#c9a84c" stroke-width="1.5"/>
+        <line x1="7"  y1="30" x2="11" y2="30" stroke="#c9a84c" stroke-width="1.5"/>
+        <line x1="49" y1="30" x2="53" y2="30" stroke="#c9a84c" stroke-width="1.5"/>
+      </svg>
+    </div>
+    <div>
+      <div class="brand-name">ALBERTO</div>
+      <div class="brand-tag">Watch Company &middot; Est. 1962</div>
+    </div>
+  </div>
+  <div class="visitors" title="Site visitor count">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+    Visitors:&nbsp;<strong id="visitorCount">0</strong>
+  </div>
+  <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+</header>
+
+<!-- ═══════════ STICKY NAV ═══════════ -->
+<nav class="menu" id="menu" aria-label="Main navigation">
+  <a href="#home">Home</a>
+  <a href="#products">Products</a>
+  <a href="#technology">Technology</a>
+  <a href="#store">Store Locator</a>
+  <a href="#prices">Price List</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#support">Support</a>
+  <a href="#about">About Us</a>
+  <a href="#contact">Contact Us</a>
+  <a href="#sitemap">Site Map</a>
+</nav>
+
+<!-- ═══════════ ALL SECTIONS SCROLL CONTINUOUSLY ═══════════ -->
+
+<!-- ── HERO ── -->
+<section id="home" class="sec-hero">
+  <div class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">&#9201; Fine Watchmaking Since 1962</p>
+      <h1>Time,<br><span>Perfected.</span></h1>
+      <p class="hero-desc">
+        From hand-wound heirlooms to cutting-edge smartwatches —
+        Alberto Watch Company offers the finest selection of luxury timepieces,
+        expert repair and certified appraisal.
+      </p>
+      <div class="hero-btns">
+        <a class="btn" href="#products">Shop Collection</a>
+        <a class="btn btn-outline" href="#about">Our Story</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="images/hero/hero-main.jpg" alt="Luxury watch close-up" loading="eager">
+      <div class="hero-right-overlay"></div>
+      <div class="hero-clock-wrap" aria-hidden="true">
+        <div class="hero-clock" id="heroClock">
+          <div class="hand h"></div>
+          <div class="hand m"></div>
+          <div class="hand s"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="clock-label">Live Time</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature strip inside hero section -->
+  <div class="feature-strip">
+    <div class="feature-tile">
+      <div class="feature-icon">&#128295;</div>
+      <div><h3>Expert Repair</h3><p>Same-day batteries &amp; straps; full mechanical servicing by certified watchmakers.</p></div>
+    </div>
+    <div class="feature-tile">
+      <div class="feature-icon">&#128181;</div>
+      <div><h3>Certified Appraisal</h3><p>Written valuations for insurance, estate planning, or resale. All brands accepted.</p></div>
+    </div>
+    <div class="feature-tile">
+      <div class="feature-icon">&#127873;</div>
+      <div><h3>Gift Services</h3><p>Free laser engraving and premium gift packaging on every purchase this season.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURED / PRODUCTS ── -->
+<section id="products" class="sec-block">
+  <div class="container">
+    <p class="sec-eyebrow">Our Collection</p>
+    <h2 class="section-title">Browse Timepieces</h2>
+    <p class="lead">Filter by product line or explore everything we carry.</p>
+    <div class="filters" id="categoryFilters"></div>
+    <p class="muted" id="productCount" style="margin-bottom:8px"></p>
+    <div class="grid" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- ── TECHNOLOGY ── -->
+<section id="technology" class="sec-block sec-dark">
+  <div class="container">
+    <p class="sec-eyebrow" style="color:var(--gold)">Inside the Watch</p>
+    <h2 class="section-title" style="color:#fff">Watch Technology</h2>
+    <p class="lead" style="color:#c8d6e5">From centuries-old mechanical craftsmanship to cutting-edge solar and smart technology.</p>
+    <div class="grid tech-grid" id="techGrid"></div>
+  </div>
+</section>
+
+<!-- ── STORE LOCATOR ── -->
+<section id="store" class="sec-block">
+  <div class="container">
+    <p class="sec-eyebrow">Nigeria</p>
+    <h2 class="section-title">Store Locator</h2>
+    <p class="lead">Four locations across Nigeria. Find the one closest to you.</p>
+    <button class="btn" id="nearestBtn" style="margin-bottom:14px">
+      &#128205; Find My Nearest Store
+    </button>
+    <p class="muted" id="nearestMsg" style="margin-bottom:16px"></p>
+    <div class="grid" id="storeGrid"></div>
+  </div>
+</section>
+
+<!-- ── PRICE LIST ── -->
+<section id="prices" class="sec-block sec-cream">
+  <div class="container">
+    <p class="sec-eyebrow">Transparent Pricing</p>
+    <h2 class="section-title">Price List</h2>
+    <p class="lead">Full pricing for every watch and clock. Click any row to view details.</p>
+    <div class="price-tools">
+      <input type="search" id="priceSearch" placeholder="&#128269; Search by name or brand...">
+      <select id="priceCat"><option value="">All categories</option></select>
+      <select id="priceSort">
+        <option value="name">Sort: Name A–Z</option>
+        <option value="low">Price: Low &#8594; High</option>
+        <option value="high">Price: High &#8594; Low</option>
+      </select>
+    </div>
+    <div class="table-wrap">
+      <table id="priceTable" aria-label="Watch price list">
+        <thead><tr><th>#</th><th>Watch</th><th>Brand</th><th>Category</th><th class="num">Price (&#8358;)</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ── GALLERY ── -->
+<section id="gallery" class="sec-block sec-dark">
+  <div class="container">
+    <p class="sec-eyebrow" style="color:var(--gold)">Visual Collection</p>
+    <h2 class="section-title" style="color:#fff">Gallery</h2>
+    <p class="lead" style="color:#c8d6e5">Tap any image to view it full size.</p>
+    <div class="gallery" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- ── SUPPORT ── -->
+<section id="support" class="sec-block">
+  <div class="container">
+    <p class="sec-eyebrow">We're Here to Help</p>
+    <h2 class="section-title">Support</h2>
+    <div class="two-col">
+      <div>
+        <h3 class="sub-heading">Frequently Asked Questions</h3>
+        <div id="faqList"></div>
+      </div>
+      <div>
+        <h3 class="sub-heading">Book a Repair or Appraisal</h3>
+        <form id="repairForm" novalidate>
+          <label>Full name<input type="text" name="name" required placeholder="Your full name"></label>
+          <label>Email address<input type="email" name="email" required placeholder="you@example.com"></label>
+          <label>Service required
+            <select name="service" required>
+              <option value="">Select a service...</option>
+              <option>Battery replacement</option>
+              <option>Strap replacement</option>
+              <option>Mechanical servicing</option>
+              <option>Glass / crystal replacement</option>
+              <option>Appraisal</option>
+            </select>
+          </label>
+          <label>Describe the issue<textarea name="msg" rows="3" placeholder="Tell us about the watch..."></textarea></label>
+          <button type="submit" class="btn">Submit Request</button>
+          <p class="form-msg" id="repairMsg" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about" class="sec-block sec-cream">
+  <div class="about-banner">
+    <img src="images/hero/about-banner.jpg" alt="Watch workshop" loading="lazy">
+    <div class="about-banner-overlay">
+      <div class="about-banner-text">
+        <h2>A Legacy of Precision</h2>
+        <p>Est. 1962 &mdash; Over six decades of watchmaking excellence</p>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="padding-top:36px">
+    <p class="sec-eyebrow">Who We Are</p>
+    <h2 class="section-title">About Alberto</h2>
+    <div class="two-col">
+      <div>
+        <p>Alberto Watch Company is a full-service watch repair, appraisal and retail store offering the finest selection of luxury timepieces with first-class service since 1962.</p>
+        <p>We carry brand-new watches from <strong>Michael Kors</strong>, <strong>Rolex</strong>, <strong>Citizen Eco-Drive</strong>, <strong>Bulova</strong> and more, alongside meticulously curated vintage pieces and our own Alberto house collection.</p>
+        <p>Founded in Lagos and now with branches in <strong>Abuja</strong>, <strong>Port Harcourt</strong> and <strong>Kano</strong>, we are Nigeria's premier destination for luxury timepieces. Our certified watchmakers service everything from antique pocket watches and grandfather clocks to the latest generation smartwatches.</p>
+      </div>
+      <div class="info-card">
+        <h3>Head Office</h3>
+        <p>&#128205; 12 Admiralty Way, Lekki Phase 1, Lagos, Nigeria</p>
+        <p>&#128222; +234 800 555 0101</p>
+        <p>&#9993; <a href="mailto:info@albertowatch.com.ng">info@albertowatch.com.ng</a></p>
+        <p>&#128337; Mon–Sat 9:00–19:00</p>
+        <hr style="border:0;border-top:1px solid rgba(255,255,255,.1);margin:16px 0">
+        <h3>Our Promise</h3>
+        <p>Every watch repaired or sold by Alberto comes with a written condition report and our personal guarantee of quality.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact" class="sec-block sec-dark">
+  <div class="container">
+    <p class="sec-eyebrow" style="color:var(--gold)">Reach Out</p>
+    <h2 class="section-title" style="color:#fff">Contact Us</h2>
+    <div class="two-col">
+      <div class="info-card info-card-light">
+        <h3>Get in Touch</h3>
+        <p>&#128205; 12 Admiralty Way, Lekki Phase 1, Lagos, Nigeria</p>
+        <p>&#128222; +234 800 555 0101</p>
+        <p>&#9993; <a href="mailto:info@albertowatch.com.ng">info@albertowatch.com.ng</a></p>
+        <p>&#128337; Mon–Sat 9:00–19:00</p>
+        <hr style="border:0;border-top:1px solid rgba(255,255,255,.1);margin:16px 0">
+        <h3>Follow Us</h3>
+        <p>@AlbertoWatches on Instagram, Facebook and X (Twitter).</p>
+      </div>
+      <form id="contactForm" novalidate style="background:#fff;padding:28px;border-radius:16px;box-shadow:var(--shadow)">
+        <h3 class="sub-heading" style="margin-bottom:16px">Send a Message</h3>
+        <label>Your name<input type="text" name="name" required placeholder="Full name"></label>
+        <label>Email<input type="email" name="email" required placeholder="you@example.com"></label>
+        <label>Message<textarea name="msg" rows="5" required placeholder="How can we help?"></textarea></label>
+        <button type="submit" class="btn">Send Message</button>
+        <p class="form-msg" id="contactMsg" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── SITEMAP ── -->
+<section id="sitemap" class="sec-block">
+  <div class="container">
+    <p class="sec-eyebrow">Navigation</p>
+    <h2 class="section-title">Site Map</h2>
+    <ul class="sitemap" id="sitemapList"></ul>
+  </div>
+</section>
+
+<!-- ═══════════ PRODUCT POPUP ═══════════ -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close popup">&times;</button>
+    <div class="modal-body">
+      <div class="modal-img" id="mImg"></div>
+      <div class="modal-info">
+        <p class="badge" id="mCat"></p>
+        <h3 id="mTitle"></h3>
+        <p class="m-brand" id="mBrand"></p>
+        <p class="m-desc" id="mDesc"></p>
+        <table class="specs" id="mSpecs"></table>
+        <p class="price" id="mPrice"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ GALLERY LIGHTBOX ═══════════ -->
+<div class="modal" id="lightbox" aria-hidden="true">
+  <div class="modal-box light" role="dialog" aria-modal="true">
+    <button class="modal-close" id="lightClose" aria-label="Close lightbox">&times;</button>
+    <div id="lightImg"></div>
+    <p id="lightCap" class="center" style="margin-top:12px;color:var(--muted)"></p>
+  </div>
+</div>
+
+<!-- ═══════════ TICKER ═══════════ -->
+<footer class="ticker-wrap" aria-live="off">
+  <div class="ticker-dot" aria-hidden="true"></div>
+  <div class="ticker"><span id="tickerText">Loading…</span></div>
+</footer>
+
+<script src="data/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

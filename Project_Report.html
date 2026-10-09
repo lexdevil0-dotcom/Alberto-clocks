@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alberto Watch Company – Project Report</title>
+<style>
+  body {
+    font-family: "Calibri", Arial, sans-serif;
+    font-size: 12pt;
+    line-height: 1.7;
+    color: #1a1a1a;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 60px;
+    background: #fff;
+  }
+
+  /* Cover page */
+  .cover {
+    text-align: center;
+    padding: 80px 0 60px;
+    border-bottom: 3px solid #c9a84c;
+    margin-bottom: 60px;
+    page-break-after: always;
+  }
+  .cover-logo {
+    font-size: 60pt;
+    margin-bottom: 16px;
+  }
+  .cover h1 {
+    font-size: 26pt;
+    color: #0b1726;
+    margin: 0 0 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .cover h2 {
+    font-size: 16pt;
+    color: #c9a84c;
+    font-weight: normal;
+    margin: 0 0 40px;
+  }
+  .cover-table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 60%;
+  }
+  .cover-table td {
+    padding: 6px 14px;
+    font-size: 11pt;
+    border: 1px solid #ddd;
+  }
+  .cover-table td:first-child {
+    font-weight: bold;
+    background: #f4f0e8;
+    width: 40%;
+  }
+  .cover-note {
+    margin-top: 60px;
+    font-size: 10pt;
+    color: #888;
+    font-style: italic;
+  }
+
+  /* TOC */
+  .toc {
+    background: #f9f5ed;
+    border-left: 5px solid #c9a84c;
+    padding: 24px 32px;
+    margin-bottom: 50px;
+    page-break-after: always;
+  }
+  .toc h2 { margin-top: 0; color: #0b1726; }
+  .toc ol { margin: 0; padding-left: 22px; }
+  .toc li { margin: 8px 0; font-size: 11pt; }
+  .toc a { color: #0b1726; text-decoration: none; }
+
+  /* Section headings */
+  h2.sec {
+    font-size: 16pt;
+    color: #0b1726;
+    border-bottom: 3px solid #c9a84c;
+    padding-bottom: 6px;
+    margin: 48px 0 18px;
+    page-break-before: always;
+  }
+  h2.sec:first-of-type { page-break-before: avoid; }
+  h3 {
+    font-size: 13pt;
+    color: #132038;
+    margin: 28px 0 10px;
+    border-left: 4px solid #c9a84c;
+    padding-left: 10px;
+  }
+  h4 {
+    font-size: 11pt;
+    color: #333;
+    margin: 18px 0 6px;
+    text-decoration: underline;
+  }
+
+  /* Tables */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 16px 0 24px;
+    font-size: 10.5pt;
+  }
+  th {
+    background: #0b1726;
+    color: #e8c96a;
+    padding: 9px 12px;
+    text-align: left;
+    font-size: 10pt;
+    letter-spacing: .04em;
+  }
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #e8e0d0;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #faf7f0; }
+  tr:hover td { background: #fdf3d0; }
+  .pass { color: #1e7e34; font-weight: bold; }
+  .num { text-align: right; }
+
+  /* Code / preformatted */
+  pre {
+    background: #1a1a2e;
+    color: #e8c96a;
+    padding: 18px 22px;
+    border-radius: 8px;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 9pt;
+    overflow-x: auto;
+    line-height: 1.6;
+    margin: 16px 0;
+  }
+  code {
+    background: #f4f0e8;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: "Consolas", monospace;
+    font-size: 10pt;
+    color: #8a1c2b;
+  }
+
+  /* Info box */
+  .box {
+    background: #f9f5ed;
+    border: 1px solid #d4c9b0;
+    border-left: 5px solid #c9a84c;
+    padding: 14px 20px;
+    border-radius: 6px;
+    margin: 16px 0;
+    font-size: 10.5pt;
+  }
+  .box.dark {
+    background: #0b1726;
+    color: #e0d8c4;
+    border-color: #c9a84c;
+  }
+  .box.dark p { margin: 4px 0; }
+
+  /* Flowchart boxes */
+  .flow {
+    background: #f9f5ed;
+    border: 1px solid #c9a84c;
+    border-radius: 8px;
+    padding: 20px 28px;
+    font-family: "Consolas", monospace;
+    font-size: 9.5pt;
+    line-height: 1.8;
+    color: #0b1726;
+    margin: 16px 0;
+  }
+
+  /* Colour swatches */
+  .swatch {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+
+  p { margin: 8px 0 12px; }
+  ul, ol { margin: 8px 0 16px; padding-left: 24px; }
+  li { margin-bottom: 5px; }
+  strong { color: #0b1726; }
+
+  .footer-line {
+    border-top: 2px solid #c9a84c;
+    margin-top: 60px;
+    padding-top: 14px;
+    text-align: center;
+    font-size: 9.5pt;
+    color: #888;
+    font-style: italic;
+  }
+
+  @media print {
+    body { padding: 20px 30px; }
+    h2.sec { page-break-before: always; }
+    .cover { page-break-after: always; }
+    .toc { page-break-after: always; }
+    pre { white-space: pre-wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════ COVER PAGE ════════ -->
+<div class="cover">
+  <div class="cover-logo">⌚</div>
+  <h1>Alberto Watch Company</h1>
+  <h2>Project Report &mdash; Single-Page Application Website</h2>
+  <table class="cover-table">
+    <tr><td>Project Title</td><td>Alberto Watch Company SPA Website</td></tr>
+    <tr><td>Technology</td><td>HTML5, CSS3, Vanilla JavaScript, JSON</td></tr>
+    <tr><td>Module</td><td>HTML5 / Web Development</td></tr>
+    <tr><td>Organisation</td><td>Aptech Computer Education</td></tr>
+    <tr><td>Country</td><td>Nigeria</td></tr>
+    <tr><td>Currency</td><td>Nigerian Naira (&#8358;)</td></tr>
+  </table>
+  <p class="cover-note">Submitted as part of the eProject requirement for the HTML5 module.</p>
+</div>
+
+<!-- ════════ TABLE OF CONTENTS ════════ -->
+<div class="toc">
+  <h2>Table of Contents</h2>
+  <ol>
+    <li><a href="#s1">Problem Definition</a></li>
+    <li><a href="#s2">Objectives of the Project</a></li>
+    <li><a href="#s3">Design Specifications</a></li>
+    <li><a href="#s4">System Flowchart</a></li>
+    <li><a href="#s5">Data Flow Diagram (DFD)</a></li>
+    <li><a href="#s6">Source Code Overview</a></li>
+    <li><a href="#s7">Test Data</a></li>
+    <li><a href="#s8">Project Installation Instructions</a></li>
+    <li><a href="#s9">Assumptions</a></li>
+  </ol>
+</div>
+
+<!-- ════════ 1. PROBLEM DEFINITION ════════ -->
+<h2 class="sec" id="s1">1. Problem Definition</h2>
+
+<p>Alberto Watch Company is a full-service watch repair, appraisal and retail store based in Nigeria. The company offers an unparalleled selection of luxury timepieces with first-class service since 1962. Their product range includes brands such as <strong>Michael Kors</strong>, <strong>Rolex</strong>, <strong>Citizen Eco-Drive</strong>, and <strong>Bulova</strong>, as well as their own Alberto house collection spanning Vintage, Luxury, Smart Watches, Sport, and Clocks.</p>
+
+<p>The company required a modern, professional online presence to:</p>
+<ul>
+  <li>Showcase their full product catalogue across all product line-ups</li>
+  <li>Display pricing transparently in <strong>Nigerian Naira (&#8358;)</strong></li>
+  <li>Allow customers to locate the four Nigerian store branches</li>
+  <li>Provide detailed information on watch technology</li>
+  <li>Enable customers to book repairs, appraisals and contact the company online</li>
+  <li>Display a live scrolling ticker with current date, time and geolocation (HTML5)</li>
+  <li>Track and display a visitor count</li>
+</ul>
+
+<p>The solution required a <strong>Single-Page Application (SPA)</strong> — responsive, cross-browser compatible, and fully operational without any server or database.</p>
+
+<!-- ════════ 2. OBJECTIVES ════════ -->
+<h2 class="sec" id="s2">2. Objectives of the Project</h2>
+
+<p>The objective of this project is to create a real-life, functional website for Alberto Watch Company using core web technologies as specified in the eProject brief. The specific objectives are:</p>
+
+<ol>
+  <li>Design and build a responsive Single-Page Application using <strong>HTML5, CSS3 and Vanilla JavaScript</strong></li>
+  <li>Implement all required sections: Home, Products, Technology, Store Locator, Price List, Gallery, Support, About Us, Contact Us, and Site Map</li>
+  <li>Use a <strong>JSON file</strong> as the data store for all products, stores, technology and FAQ content</li>
+  <li>Demonstrate HTML5 features including Geolocation API, localStorage, semantic tags, and form validation</li>
+  <li>Ensure the site works correctly in Chrome, Edge, Firefox and Safari</li>
+  <li>Apply attractive fonts, colours and animations as required</li>
+  <li>Localise the site fully for the Nigerian market (&#8358; Naira, Nigerian store locations)</li>
+</ol>
+
+<!-- ════════ 3. DESIGN SPECIFICATIONS ════════ -->
+<h2 class="sec" id="s3">3. Design Specifications</h2>
+
+<h3>3.1 Functional Requirements Checklist</h3>
+
+<table>
+  <thead><tr><th>#</th><th>Requirement (from Brief)</th><th>Implementation</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Suitable logo and decent colour combination at top of page</td><td>SVG clock logo, navy &amp; gold luxury palette</td><td class="pass">&#10003; Done</td></tr>
+    <tr><td>2</td><td>Menu with Products, Technology, Store Locator, Support etc.</td><td>10-item sticky navigation bar with scroll-spy</td><td class="pass">&#10003; Done</td></tr>
+    <tr><td>3</td><td>Sections with info on different watches and technology</td><td>Products section + Technology section with 6 cards</td><td class="pass">&#10003; Done</td></tr>
+    <tr><td>4</td><td>Products categorised by line-up (Vintage, Luxury, Smart, Sport, Clocks)</td><td>Filter chip buttons linked to JSON categories</td><td class="pass">&#10003; Done</td></tr>
+    <tr><td>5</td><td>Selecting a product line shows complete list for that category</td><td>JS filter renders matching cards with fade transition</td><td class="pass">&#10003; Done</td></tr>
+    <tr><td>6</td><td>Watch details displayed in a popup window</td><td>Animated modal with photo, specs table, price</td><td class="pass">&#10003; Done</td></tr>
+    <tr><td>7</td><td>Price list for all watches</td><td>Searchable, sortable table in Nigerian Naira (&#8358;)</td><td class="pass">&#10003; Done</td></tr>
+    <tr><td>8</td><td>Gallery for viewing different images</td><td>Photo grid with hover captions and full lightbox</td><td class="pass">&#10003; Done</td></tr>
+    <tr><td>9</td><td>Site Map, Gallery, About Us, Contact Us links</td><td>All present in sticky navigation bar</td><td class="pass">&#10003; Done</td></tr>
+    <tr><td>10</td><td>About Us &amp; Contact Us show email, address and phone</td><td>Both sections display all three contact details</td><td class="pass">&#10003; Done</td></tr>
+    <tr><td>11</td><td>Scrolling ticker with date, time and geolocation (HTML5)</td><td>Fixed footer ticker, updates every second, HTML5 Geolocation API</td><td class="pass">&#10003; Done</td></tr>
+    <tr><td>12</td><td>Visitor count at top right beside logo</td><td>localStorage-backed counter, increments per session</td><td class="pass">&#10003; Done</td></tr>
+    <tr><td>13</td><td>Menu options change colour on hover and after clicking</td><td>CSS transitions on hover; active class on scroll-spy</td><td class="pass">&#10003; Done</td></tr>
+    <tr><td>14</td><td>Fade in / fade out effects</td><td>Modal spring animation, product grid fade on filter change</td><td class="pass">&#10003; Done</td></tr>
+  </tbody>
+</table>
+
+<h3>3.2 Technical Architecture</h3>
+
+<p>The website is built as a <strong>true Single-Page Application</strong> — all sections exist on one scrolling page. There is no page reload at any point. Navigation links use smooth scroll anchors and the active nav item highlights automatically as the user scrolls (scroll-spy).</p>
+
+<table>
+  <thead><tr><th>Layer</th><th>Technology</th><th>Purpose</th></tr></thead>
+  <tbody>
+    <tr><td>Structure</td><td>HTML5</td><td>Semantic layout — header, nav, section, footer, form, dialog</td></tr>
+    <tr><td>Presentation</td><td>CSS3</td><td>Grid, Flexbox, custom properties, animations, media queries</td></tr>
+    <tr><td>Behaviour</td><td>Vanilla JavaScript (ES5)</td><td>Data loading, rendering, filtering, modals, geolocation, clock, ticker</td></tr>
+    <tr><td>Data</td><td>JSON</td><td>Products, stores, technology, FAQ — loaded via fetch() or embedded fallback</td></tr>
+    <tr><td>Images</td><td>Local files (images/)</td><td>15 product photos, 6 tech photos, 4 store photos, 2 hero photos</td></tr>
+  </tbody>
+</table>
+
+<h3>3.3 Colour Scheme</h3>
+
+<table>
+  <thead><tr><th>Role</th><th>Colour</th><th>Hex Code</th></tr></thead>
+  <tbody>
+    <tr><td>Primary background (nav/hero)</td><td><span class="swatch" style="background:#0b1726"></span>Dark Navy</td><td><code>#0b1726</code></td></tr>
+    <tr><td>Secondary background</td><td><span class="swatch" style="background:#132038"></span>Navy</td><td><code>#132038</code></td></tr>
+    <tr><td>Accent / highlight</td><td><span class="swatch" style="background:#c9a84c"></span>Gold</td><td><code>#c9a84c</code></td></tr>
+    <tr><td>Light gold</td><td><span class="swatch" style="background:#e8c96a"></span>Light Gold</td><td><code>#e8c96a</code></td></tr>
+    <tr><td>Page background</td><td><span class="swatch" style="background:#f9f5ed;border:1px solid #ccc"></span>Cream</td><td><code>#f9f5ed</code></td></tr>
+    <tr><td>Price / danger</td><td><span class="swatch" style="background:#8a1c2b"></span>Deep Red</td><td><code>#8a1c2b</code></td></tr>
+  </tbody>
+</table>
+
+<h3>3.4 Site Sections</h3>
+
+<table>
+  <thead><tr><th>Section</th><th>Content</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Home / Hero</strong></td><td>Brand banner, live analog clock, hero watch photo, feature strip (Repair, Appraisal, Gift Services)</td></tr>
+    <tr><td><strong>Products</strong></td><td>Category filter chips, 15-item product grid with real photos, Quick View hover button, click opens modal</td></tr>
+    <tr><td><strong>Technology</strong></td><td>Six technology cards: Mechanical, Quartz, Solar/Eco-Drive, Smart, Sapphire Crystal, Water Resistance</td></tr>
+    <tr><td><strong>Store Locator</strong></td><td>Four Nigerian stores (Lagos, Abuja, Port Harcourt, Kano) with photos, addresses, phone numbers, Google Maps links, HTML5 geolocation to find nearest</td></tr>
+    <tr><td><strong>Price List</strong></td><td>Searchable, sortable table of all 15 products priced in &#8358; Naira; click row opens modal</td></tr>
+    <tr><td><strong>Gallery</strong></td><td>Photo grid of all 15 products; hover shows name caption; click opens full lightbox</td></tr>
+    <tr><td><strong>Support</strong></td><td>FAQ accordion (5 questions) + Repair/Appraisal booking form with client-side validation</td></tr>
+    <tr><td><strong>About Us</strong></td><td>Full-width banner photo, company history, head office contact card (address, phone, email)</td></tr>
+    <tr><td><strong>Contact Us</strong></td><td>Contact details card + message form with validation</td></tr>
+    <tr><td><strong>Site Map</strong></td><td>Hierarchical list of all sections and product categories with anchor links</td></tr>
+  </tbody>
+</table>
+
+<h3>3.5 File Structure</h3>
+
+<pre>alberto/
+├── index.html                  ← Main page (all sections)
+├── css/
+│   └── style.css               ← All styling (~550 lines)
+├── js/
+│   └── app.js                  ← All JavaScript (~380 lines)
+├── data/
+│   ├── products.json           ← JSON data store
+│   └── data.js                 ← Embedded fallback for file:// protocol
+├── images/
+│   ├── products/               ← p1.jpg – p15.jpg (15 product photos)
+│   ├── tech/                   ← 6 technology photos
+│   ├── stores/                 ← 4 Nigerian store photos
+│   └── hero/                   ← Hero banner + About banner
+├── Project_Report.html         ← This report
+├── Alberto Clocks.doc          ← Original project brief
+├── eProject_Feeback_Form.xls
+└── eProject_Status_Report.xls</pre>
+
+<!-- ════════ 4. SYSTEM FLOWCHART ════════ -->
+<h2 class="sec" id="s4">4. System Flowchart</h2>
+
+<h3>4.1 Application Startup Flow</h3>
+<div class="flow">
+START: User opens index.html in browser
+        │
+        ▼
+Browser loads HTML structure, CSS styles, data.js fallback
+        │
+        ▼
+app.js executes → calls loadData()
+        │
+        ├─── Is protocol "file://"?
+        │         YES → use window.WATCH_DATA (from data.js)
+        │         NO  → fetch("data/products.json")
+        │                   │
+        │                   ├── Success → use JSON response
+        │                   └── Error   → fallback to window.WATCH_DATA
+        ▼
+DATA object is available
+        │
+        ▼
+Render all sections simultaneously:
+┌─────────────────────────────────────────────┐
+│  renderFilters()   → category filter chips  │
+│  renderProducts()  → 15 product cards       │
+│  renderTech()      → 6 technology cards     │
+│  renderStores()    → 4 store cards          │
+│  initPrices()      → price table            │
+│  initGallery()     → photo gallery grid     │
+│  initFAQ()         → accordion FAQ          │
+│  initForms()       → repair + contact forms │
+│  initSitemap()     → sitemap list           │
+│  initHeroClock()   → live analog clock      │
+│  initVisitors()    → visitor counter        │
+│  initTicker()      → scrolling ticker       │
+│  initScrollSpy()   → nav active highlight   │
+│  initBurger()      → mobile hamburger menu  │
+└─────────────────────────────────────────────┘
+        │
+        ▼
+PAGE IS FULLY RENDERED AND INTERACTIVE
+        │
+        ▼
+END (stays live — clock + ticker update every second)
+</div>
+
+<h3>4.2 User Interaction Flowchart</h3>
+<div class="flow">
+USER ACTION
+    │
+    ├── Click category chip (e.g. "Vintage")
+    │       → Filter product list → fade out → re-render cards → fade in
+    │
+    ├── Click product card  OR  click price table row
+    │       → openProduct(id) → populate modal → showModal()
+    │       → User closes (Esc / click outside / × button) → hideModal()
+    │
+    ├── Click gallery image
+    │       → populate lightbox → showModal(lightbox)
+    │
+    ├── Click "Find My Nearest Store"
+    │       → navigator.geolocation.getCurrentPosition()
+    │       ├── Granted → haversine distance to each store → highlight nearest
+    │       └── Denied  → show error message
+    │
+    ├── Type in price search box
+    │       → filter + sort table rows in real time
+    │
+    ├── Click FAQ question
+    │       → toggle .open class → expand/collapse answer
+    │
+    ├── Submit repair form or contact form
+    │       → validateForm() → check required fields + email format
+    │       ├── Invalid → red borders + error message
+    │       └── Valid   → green success message + reset form
+    │
+    └── Scroll page
+            → initScrollSpy() updates active nav link continuously
+</div>
+
+<!-- ════════ 5. DATA FLOW DIAGRAM ════════ -->
+<h2 class="sec" id="s5">5. Data Flow Diagram (DFD)</h2>
+
+<h3>Level 0 — Context Diagram</h3>
+<div class="flow">
+
+  ┌──────────────┐         watch/price data          ┌─────────────────┐
+  │              │ ─────────────────────────────────► │                 │
+  │  User        │                                    │  Alberto Watch  │
+  │  (Browser)   │ ◄───────────────────────────────── │  Company SPA    │
+  │              │     product info, forms, maps      │                 │
+  └──────────────┘                                    └────────┬────────┘
+                                                               │
+                                                               │ reads
+                                                               ▼
+                                                    ┌─────────────────────┐
+                                                    │   JSON Data Store   │
+                                                    │   (products.json)   │
+                                                    └─────────────────────┘
+</div>
+
+<h3>Level 1 — Detailed DFD</h3>
+<div class="flow">
+[User]
+  │
+  ├─► [1.0 Product Filter &amp; Display]
+  │         reads ──► products.json (products array)
+  │         writes ─► Product Card Grid (DOM)
+  │
+  ├─► [2.0 Product Detail Modal]
+  │         reads ──► products.json (single product by id)
+  │         reads ──► images/products/pN.jpg
+  │         writes ─► Modal popup (DOM)
+  │
+  ├─► [3.0 Store Locator]
+  │         reads ──► products.json (stores array)
+  │         reads ──► HTML5 Geolocation API (lat/lng)
+  │         writes ─► Store cards with nearest highlighted
+  │
+  ├─► [4.0 Price List]
+  │         reads ──► products.json (products array)
+  │         writes ─► Filtered &amp; sorted HTML table
+  │
+  ├─► [5.0 Gallery &amp; Lightbox]
+  │         reads ──► images/products/pN.jpg
+  │         writes ─► Gallery grid + lightbox modal
+  │
+  ├─► [6.0 Form Validation]
+  │         reads ──► User input (name, email, message)
+  │         writes ─► Inline error/success feedback (DOM)
+  │
+  ├─► [7.0 Visitor Counter]
+  │         reads  ──► localStorage ("alberto_visitors")
+  │         writes ──► localStorage + visitor count display
+  │
+  └─► [8.0 Ticker + Clock]
+        reads ──► JavaScript Date API (system clock)
+        reads ──► HTML5 Geolocation API
+        writes ─► Scrolling ticker text (DOM, every 1 second)
+        writes ─► Analog clock hands (DOM, every 1 second)
+</div>
+
+<!-- ════════ 6. SOURCE CODE OVERVIEW ════════ -->
+<h2 class="sec" id="s6">6. Source Code Overview</h2>
+
+<h3>6.1 index.html</h3>
+<p>A single HTML5 file containing all ten sections. All sections are always visible — the page scrolls continuously. No hidden pages or reloads.</p>
+<p>Key HTML5 features used:</p>
+<ul>
+  <li>Semantic elements: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;article&gt;</code></li>
+  <li><code>&lt;form novalidate&gt;</code> with custom JavaScript validation</li>
+  <li><code>aria-*</code> attributes throughout for screen reader accessibility</li>
+  <li><code>loading="lazy"</code> on all non-hero images for performance</li>
+  <li><code>role="dialog"</code> and <code>aria-modal="true"</code> on popup windows</li>
+  <li>Responsive <code>&lt;meta name="viewport"&gt;</code></li>
+</ul>
+
+<h3>6.2 css/style.css (~550 lines)</h3>
+<ul>
+  <li><strong>CSS Custom Properties</strong> — colour system defined as variables in <code>:root</code></li>
+  <li><strong>CSS Grid</strong> — hero split layout, product card grid, feature strip, two-column sections</li>
+  <li><strong>Flexbox</strong> — navigation bar, top bar, card layouts</li>
+  <li><strong>CSS Transitions &amp; Animations</strong> — hover effects, modal spring (cubic-bezier), ticker scroll, clock dot pulse</li>
+  <li><strong>@media queries</strong> at 960px, 700px, 420px for full responsiveness</li>
+  <li><strong>prefers-reduced-motion</strong> media query for accessibility compliance</li>
+</ul>
+
+<h3>6.3 js/app.js (~380 lines)</h3>
+<p>Written as an IIFE (Immediately Invoked Function Expression) — ES5 compatible, no frameworks.</p>
+
+<table>
+  <thead><tr><th>Function</th><th>Purpose</th></tr></thead>
+  <tbody>
+    <tr><td><code>loadData()</code></td><td>Fetches products.json; falls back to embedded data.js on file:// protocol</td></tr>
+    <tr><td><code>renderFilters()</code></td><td>Builds category filter chip buttons from JSON categories array</td></tr>
+    <tr><td><code>renderProducts()</code></td><td>Renders the product card grid; re-renders on filter change with fade</td></tr>
+    <tr><td><code>card(p)</code></td><td>Returns HTML string for a single product card</td></tr>
+    <tr><td><code>openProduct(id)</code></td><td>Finds product by id, populates modal, calls showModal()</td></tr>
+    <tr><td><code>renderTech()</code></td><td>Renders the six technology cards with images</td></tr>
+    <tr><td><code>renderStores(city)</code></td><td>Renders store cards; highlights nearest city if provided</td></tr>
+    <tr><td><code>nearestStore(lat,lng)</code></td><td>Haversine formula to find closest store to user's GPS coordinates</td></tr>
+    <tr><td><code>initPrices()</code></td><td>Price table with live search, category filter and A-Z / price sort</td></tr>
+    <tr><td><code>initGallery()</code></td><td>Photo grid; click opens lightbox modal</td></tr>
+    <tr><td><code>initFAQ()</code></td><td>Accordion expand/collapse for FAQ items</td></tr>
+    <tr><td><code>validateForm()</code></td><td>Client-side validation — checks required fields and email format</td></tr>
+    <tr><td><code>initHeroClock()</code></td><td>Draws SVG tick marks; animates hour, minute, second hands every second</td></tr>
+    <tr><td><code>initVisitors()</code></td><td>Reads visitor count from localStorage, increments once per session</td></tr>
+    <tr><td><code>initTicker()</code></td><td>Updates scrolling ticker with live date, time and geolocation every second</td></tr>
+    <tr><td><code>initScrollSpy()</code></td><td>Adds/removes .active class on nav links as user scrolls past sections</td></tr>
+    <tr><td><code>showModal()</code> / <code>hideModal()</code></td><td>Spring-animated modal open/close with keyboard (Esc) and backdrop support</td></tr>
+  </tbody>
+</table>
+
+<h3>6.4 data/products.json</h3>
+<p>The JSON data store has five top-level keys:</p>
+<ul>
+  <li><strong>categories</strong> — array of 5 product line-up names</li>
+  <li><strong>products</strong> — 15 objects: id, name, brand, category, price (&#8358;), description, specs</li>
+  <li><strong>stores</strong> — 4 Nigerian store objects: city, address, phone, lat, lng, hours</li>
+  <li><strong>technology</strong> — 6 objects: title, icon, description text</li>
+  <li><strong>faq</strong> — 5 objects: question, answer</li>
+</ul>
+
+<h4>Sample product record:</h4>
+<pre>{
+  "id": 4,
+  "name": "Submariner Master",
+  "brand": "Rolex",
+  "category": "Luxury",
+  "price": 15200000,
+  "desc": "Iconic diver's watch with a ceramic bezel...",
+  "specs": {
+    "Movement": "Automatic",
+    "Case": "40mm Oystersteel",
+    "Water Resistance": "300m",
+    "Warranty": "5 years"
+  }
+}</pre>
+
+<!-- ════════ 7. TEST DATA ════════ -->
+<h2 class="sec" id="s7">7. Test Data</h2>
+
+<h3>7.1 Product Filter Test</h3>
+<table>
+  <thead><tr><th>Action</th><th>Expected Result</th><th>Result</th></tr></thead>
+  <tbody>
+    <tr><td>Click "All" chip</td><td>All 15 products displayed</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Click "Vintage" chip</td><td>3 products: Heritage 1962, Aviator Retro, Pocket Heirloom</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Click "Luxury" chip</td><td>4 products: Submariner, Datejust, Gem Rose, Eco-Drive</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Click "Smart Watches" chip</td><td>3 products: Pulse S1, Orbit GPS, Lite Fit</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Click "Sport" chip</td><td>2 products: Tide Runner, Sprint Racer</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Click "Clocks" chip</td><td>3 products: Grandfather Oak, Mantel Brass, Wall Station</td><td class="pass">&#10003; Pass</td></tr>
+  </tbody>
+</table>
+
+<h3>7.2 Product Modal Popup Test</h3>
+<table>
+  <thead><tr><th>Action</th><th>Expected Result</th><th>Result</th></tr></thead>
+  <tbody>
+    <tr><td>Click any product card</td><td>Modal opens with photo, name, brand, description, specs, price in &#8358;</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Press Escape key</td><td>Modal closes</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Click outside modal (backdrop)</td><td>Modal closes</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Click &times; button</td><td>Modal closes</td><td class="pass">&#10003; Pass</td></tr>
+  </tbody>
+</table>
+
+<h3>7.3 Price List Test</h3>
+<table>
+  <thead><tr><th>Action</th><th>Expected Result</th><th>Result</th></tr></thead>
+  <tbody>
+    <tr><td>Search "rolex"</td><td>2 results shown</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Search "alberto"</td><td>8 results (own-brand products)</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Sort: Price Low → High</td><td>Wall Station Clock (&#8358;132,000) appears first</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Sort: Price High → Low</td><td>Submariner Master (&#8358;15,200,000) appears first</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Click a table row</td><td>Product detail modal opens</td><td class="pass">&#10003; Pass</td></tr>
+  </tbody>
+</table>
+
+<h3>7.4 Form Validation Test</h3>
+<table>
+  <thead><tr><th>Action</th><th>Expected Result</th><th>Result</th></tr></thead>
+  <tbody>
+    <tr><td>Submit contact form empty</td><td>Red borders on all required fields + error message</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Enter invalid email (e.g. "abc")</td><td>Email field highlighted red</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Fill all required fields correctly</td><td>Green success message; form resets</td><td class="pass">&#10003; Pass</td></tr>
+  </tbody>
+</table>
+
+<h3>7.5 Store Locator / Geolocation Test</h3>
+<table>
+  <thead><tr><th>Action</th><th>Expected Result</th><th>Result</th></tr></thead>
+  <tbody>
+    <tr><td>Click "Find My Nearest Store"</td><td>Browser requests location permission</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Permission denied</td><td>Error message shown; all four stores still displayed</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Permission granted</td><td>Nearest store highlighted with gold border and &#11088;</td><td class="pass">&#10003; Pass</td></tr>
+  </tbody>
+</table>
+
+<h3>7.6 Responsive Layout Test</h3>
+<table>
+  <thead><tr><th>Screen Size</th><th>Expected Result</th><th>Result</th></tr></thead>
+  <tbody>
+    <tr><td>Desktop (&gt;960px)</td><td>Two-column hero, 4-column product grid, full nav bar</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Tablet (700px – 960px)</td><td>Single-column hero, 2-column grid, full nav bar</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Mobile (&lt;700px)</td><td>Hamburger menu, single-column layout throughout</td><td class="pass">&#10003; Pass</td></tr>
+  </tbody>
+</table>
+
+<h3>7.7 Ticker Test</h3>
+<table>
+  <thead><tr><th>Test</th><th>Expected Result</th><th>Result</th></tr></thead>
+  <tbody>
+    <tr><td>Page load</td><td>Ticker displays current date, time and location or time zone</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Wait 3 seconds</td><td>Time shown in ticker updates</td><td class="pass">&#10003; Pass</td></tr>
+    <tr><td>Hover over ticker</td><td>Ticker pauses scrolling</td><td class="pass">&#10003; Pass</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════ 8. INSTALLATION ════════ -->
+<h2 class="sec" id="s8">8. Project Installation Instructions</h2>
+
+<ol>
+  <li>Extract the project zip file to any folder on your computer.</li>
+  <li>Open <code>index.html</code> in any modern web browser (Chrome, Edge, Firefox, or Safari).</li>
+  <li>No installation, server setup, or internet connection is required.</li>
+  <li>All images are stored locally in the <code>images/</code> folder.</li>
+  <li>All data is stored in <code>data/data.js</code> and is loaded automatically when opening via <code>file://</code>.</li>
+</ol>
+
+<div class="box">
+  <strong>Optional — Local Server (for JSON fetch API):</strong><br><br>
+  Open a terminal in the project folder and run:<br>
+  <code>python -m http.server 8000</code><br><br>
+  Then open <strong>http://localhost:8000</strong> in your browser.
+</div>
+
+<p><strong>Browser Support:</strong> Chrome 80+, Edge 80+, Firefox 75+, Safari 13+, Opera 70+</p>
+
+<!-- ════════ 9. ASSUMPTIONS ════════ -->
+<h2 class="sec" id="s9">9. Assumptions</h2>
+
+<ol>
+  <li><strong>Visitor count</strong> is stored in the browser's <code>localStorage</code>. It starts at 1,250 and increments by 1 per new browser session. It does not sync across different browsers or devices — this would require a server.</li>
+  <li><strong>Prices</strong> are approximate market prices in Nigerian Naira (&#8358;) for demonstration purposes only. They do not represent real retail prices.</li>
+  <li><strong>Store addresses</strong> and <strong>phone numbers</strong> are sample data created for the purpose of this project.</li>
+  <li><strong>Geolocation</strong> uses the browser's HTML5 Geolocation API. If the user denies location permission, the ticker falls back to displaying the user's detected time zone instead of coordinates.</li>
+  <li><strong>Form submissions</strong> are simulated client-side only. No email is actually sent. A real deployment would require a server-side form handler or a third-party service such as EmailJS or Formspree.</li>
+  <li><strong>No external libraries</strong> were used — no jQuery, no React, no Bootstrap, no AngularJS. The entire site is built with pure HTML5, CSS3 and Vanilla JavaScript as required by the brief.</li>
+  <li>The site is designed to work fully <strong>offline</strong> once the files are saved locally, as all images and data are bundled with the project.</li>
+</ol>
+
+<div class="footer-line">
+  Alberto Watch Company &mdash; eProject Submission &mdash; HTML5 Module &mdash; Aptech Computer Education Nigeria
+</div>
+
+</body>
+</html>
